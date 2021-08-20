@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nv-ccaas-backend-gateway:
+    image: nv-ccaas-backend-gateway
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx256m
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=dev
+      - spring_application_name=cemm-gateway
+      - spring_cloud_config_uri=http://nv-ccaas-backend-config-server:8888
+      - spring_cloud_config_enabled=true
+    ports:
+      - 8765:8765
